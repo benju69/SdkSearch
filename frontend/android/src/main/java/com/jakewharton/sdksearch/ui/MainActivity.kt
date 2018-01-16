@@ -139,11 +139,11 @@ class MainActivity : Activity() {
         .map(CharSequence::isNotEmpty)
         .crashingSubscribe(clear.visibility(INVISIBLE))
 
-    val robotoMono = resources.getFont(R.font.roboto_mono)
+    //val robotoMono = resources.getFont(R.font.roboto_mono)
     queryInput.textChanges()
         .map(CharSequence::isEmpty)
         .crashingSubscribe { empty ->
-          queryInput.typeface = if (empty) Typeface.DEFAULT else robotoMono
+          queryInput.typeface = Typeface.DEFAULT //if (empty) Typeface.DEFAULT else robotoMono
         }
 
     launch(UI, UNDISPATCHED) {
